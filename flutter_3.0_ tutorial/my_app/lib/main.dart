@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,6 +34,7 @@ class _RootPageState extends State<RootPage> {
         // backgroundColor: Colors.black,
         title: const Text('Flutter'),
       ),
+      body: const HomePage(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           debugPrint("Floating Action Button 123");
