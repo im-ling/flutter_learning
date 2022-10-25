@@ -26,7 +26,7 @@ class _LearnFlutterPageState extends State<LearnFlutterPage> {
         child: Column(
           children: [
             const Divider(color: Colors.blue),
-            Image.asset('images/einstein.jpg'),
+            Image.asset('images/ghostblade_jade.webp'),
             const SizedBox(height: 10),
             const Divider(color: Colors.blue),
             Container(
