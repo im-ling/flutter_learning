@@ -53,6 +53,26 @@ class _LearnFlutterPageState extends State<LearnFlutterPage> {
                 debugPrint("Text button pressed");
               },
               child: const Text("Text Button")),
+          GestureDetector(
+            onTap: () {
+              debugPrint("tap row");
+            },
+            behavior: HitTestBehavior.opaque,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: const [
+                Icon(
+                  Icons.local_fire_department,
+                  color: Colors.blue,
+                ),
+                Text("Row Button"),
+                Icon(
+                  Icons.local_fire_department,
+                  color: Colors.blue,
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
