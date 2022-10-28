@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_boost/flutter_boost.dart';
+import "dart:convert";
 
 void main() {
   ///这里的CustomFlutterBinding调用务必不可缺少，用于控制Boost状态的resume和pause
@@ -18,6 +19,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   /// 由于很多同学说没有跳转动画，这里是因为之前exmaple里面用的是 [PageRouteBuilder]，
   /// 其实这里是可以自定义的，和Boost没太多关系，比如我想用类似iOS平台的动画，
   /// 那么只需要像下面这样写成 [CupertinoPageRoute] 即可
@@ -28,14 +34,17 @@ class _MyAppState extends State<MyApp> {
   /// 那么前后两个页面都必须是遵循CupertinoRouteTransitionMixin的路由
   /// 简单来说，就两个页面都是CupertinoPageRoute就好
   /// 如果用MaterialPageRoute的话同理
-
-  Map<String, FlutterBoostRouteFactory> routerMap = {
+  ///
+  // RouteSettings? static_settings;
+  static Map<String, FlutterBoostRouteFactory> routerMap = {
     'mainPage': (RouteSettings settings, String? uniqueId) {
       return CupertinoPageRoute(
           settings: settings,
           builder: (_) {
-            Map<String, Object> map = settings.arguments as Map<String, Object>;
+            Map<String, dynamic> map =
+                settings.arguments as Map<String, dynamic>;
             String data = map['data'] as String;
+            debugPrint(data);
             return MainPage(
               data: data,
             );
@@ -48,6 +57,7 @@ class _MyAppState extends State<MyApp> {
             Map<String, dynamic> map =
                 settings.arguments as Map<String, dynamic>;
             String data = map['data'] ?? "123";
+            debugPrint(data);
             return SimplePage(
               data: data,
             );
@@ -56,15 +66,18 @@ class _MyAppState extends State<MyApp> {
   };
 
   Route<dynamic>? routeFactory(RouteSettings settings, String? uniqueId) {
-    // FlutterBoostRouteFactory func =
-    //     routerMap[settings.name] as FlutterBoostRouteFactory;
-    // debugPrint("llll" + (settings.name ?? ''));
-    // if (settings == null || settings.name == null) {
-    FlutterBoostRouteFactory func =
-        routerMap["simplePage"] as FlutterBoostRouteFactory;
-    // }
+    FlutterBoostRouteFactory? func = routerMap[settings.name!];
+    if (func == null) {
+      return null;
+    }
     return func(settings, uniqueId);
   }
+
+  // Route<dynamic>? routeFactory(RouteSettings settings, String? uniqueId) {
+  //   FlutterBoostRouteFactory func =
+  //       routerMap[settings.name] as FlutterBoostRouteFactory;
+  //   return func(settings, uniqueId);
+  // }
 
   Widget appBuilder(Widget home) {
     return MaterialApp(
@@ -97,6 +110,8 @@ class MainPage extends StatelessWidget {
   }
 }
 
+var global_i = 0;
+
 class SimplePage extends StatelessWidget {
   const SimplePage({Object? data});
   @override
@@ -106,9 +121,26 @@ class SimplePage extends StatelessWidget {
         child: ElevatedButton(
             onPressed: () {
               debugPrint("Elevated button pressed");
-              BoostNavigator.instance.pop();
+              // BoostNavigator.instance.pop();
+              ///这里添加监听，原生利用'event'这个key发送过来消息的时候，下面的函数会调用，
+              ///这里就是简单的在flutter上弹一个弹窗
+              if (global_i == 0) {
+                global_i++;
+                BoostChannel.instance.addEventListener("eventToFlutter",
+                    (key, arguments) {
+                  debugPrint("lllll");
+                  debugPrint(key);
+                  debugPrint(jsonEncode(arguments));
+                  return Future.delayed(const Duration(seconds: 2), () {
+                    debugPrint("what fuck !!!");
+                  });
+                });
+              }
+
+              BoostChannel.instance
+                  .sendEventToNative("eventToNative", {"key1": "value1"});
             },
-            child: const Text("Elevated Button")),
+            child: const Text("Channel test")),
       ),
     );
   }

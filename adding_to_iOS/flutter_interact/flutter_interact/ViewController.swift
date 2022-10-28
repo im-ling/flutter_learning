@@ -30,8 +30,9 @@ class ViewController: UIViewController {
     @objc func showFlutter() {
         
         let options = FlutterBoostRouteOptions()
-        options.pageName = "mainPage"
-        options.arguments = ["key" :"value"]
+        options.pageName = "simplePage"
+        options.arguments = ["key" :"value", "data":"datastring"]
+        
 
         //页面是否透明（用于透明弹窗场景），若不设置，默认情况下为true
         options.opaque = true
@@ -47,6 +48,23 @@ class ViewController: UIViewController {
         }
 
         FlutterBoost.instance().open(options)
+        
+        
+        //同样声明一个对象用来存删除的函数
+
+        //这里注册事件监听，监听flutter发送到iOS的事件
+        FlutterBoost.instance().addEventListener({[weak self] key, dic in
+            //注意，如果这里self持有removeListener，而这个闭包中又有self的话，要用weak self
+            //否则就有self->removeListener->self 循环引用
+            
+            //在这里处理你的事件
+            print("lllll")
+            print(key)
+            print(dic)
+            
+            FlutterBoost.instance().sendEventToFlutter(with: "eventToFlutter", arguments: ["data":"event from native"])
+        }, forName: "eventToNative")
+        
 //      let flutterEngine = (UIApplication.shared.delegate as! AppDelegate).flutterEngine
 //      let flutterViewController =
 //          FlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)
