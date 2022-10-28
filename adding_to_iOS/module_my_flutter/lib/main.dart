@@ -117,30 +117,51 @@ class SimplePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: ElevatedButton(
-            onPressed: () {
-              debugPrint("Elevated button pressed");
-              // BoostNavigator.instance.pop();
-              ///这里添加监听，原生利用'event'这个key发送过来消息的时候，下面的函数会调用，
-              ///这里就是简单的在flutter上弹一个弹窗
-              if (global_i == 0) {
-                global_i++;
-                BoostChannel.instance.addEventListener("eventToFlutter",
-                    (key, arguments) {
-                  debugPrint("lllll");
-                  debugPrint(key);
-                  debugPrint(jsonEncode(arguments));
-                  return Future.delayed(const Duration(seconds: 2), () {
-                    debugPrint("what fuck !!!");
-                  });
-                });
-              }
+      body: Column(
+        children: [
+          const SizedBox(height: 200),
+          Center(
+            child: ElevatedButton(
+                onPressed: () {
+                  debugPrint("Elevated button pressed");
+                  // BoostNavigator.instance.pop();
+                  ///这里添加监听，原生利用'event'这个key发送过来消息的时候，下面的函数会调用，
+                  ///这里就是简单的在flutter上弹一个弹窗
+                  if (global_i == 0) {
+                    global_i++;
+                    BoostChannel.instance.addEventListener("eventToFlutter",
+                        (key, arguments) {
+                      debugPrint("lllll");
+                      debugPrint(key);
+                      debugPrint(jsonEncode(arguments));
+                      return Future.delayed(const Duration(seconds: 2), () {
+                        debugPrint("what fuck !!!");
+                      });
+                    });
+                  }
 
-              BoostChannel.instance
-                  .sendEventToNative("eventToNative", {"key1": "value1"});
-            },
-            child: const Text("Channel test")),
+                  BoostChannel.instance
+                      .sendEventToNative("eventToNative", {"key1": "value1"});
+                },
+                child: const Text("Channel test")),
+          ),
+          Center(
+            child: ElevatedButton(
+                onPressed: () {
+                  BoostNavigator.instance.push(
+                    "yourPage", //required
+                    withContainer: false, //optional
+                    arguments: {"key": "value"}, //optional
+                    opaque: true, //optional,default value is true
+                  );
+
+                  ///or
+                  // Navigator.of(context).pushNamed('simplePage',
+                  //     arguments: {'data': _controller.text});
+                },
+                child: const Text("push native")),
+          ),
+        ],
       ),
     );
   }
