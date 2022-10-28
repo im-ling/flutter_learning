@@ -11,22 +11,17 @@ import Flutter
 import FlutterPluginRegistrant
 import flutter_boost
 
-let global_delegate = BoostDelegate()
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    lazy var flutterEngine = FlutterEngine(name: "my flutter engine")
+//    lazy var flutterEngine = FlutterEngine(name: "my flutter engine")
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Runs the default Dart entrypoint with a default Flutter route.
-        flutterEngine.run();
+//        flutterEngine.run();
         // Used to connect plugins (only if you have plugins with iOS platform code).
-        GeneratedPluginRegistrant.register(with: self.flutterEngine);
-        
-        FlutterBoost.instance().setup(application, delegate: global_delegate) { engine in
-
-        }
         // Override point for customization after application launch.
         return true
     }

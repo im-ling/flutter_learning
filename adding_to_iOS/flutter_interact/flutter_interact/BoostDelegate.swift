@@ -43,11 +43,9 @@ class BoostDelegate: NSObject,FlutterBoostDelegate {
 
         //如果是present模式 ，或者要不透明模式，那么就需要以present模式打开页面
         if(isPresent || !options.opaque){
-            self.tempVc.present(vc, animated: true)
-//            self.navigationController?.present(vc, animated: isAnimated, completion: nil)
+            self.navigationController?.present(vc, animated: isAnimated, completion: nil)
         }else{
-            self.tempVc.present(vc, animated: true)
-//            self.navigationController?.pushViewController(vc, animated: isAnimated)
+            self.navigationController?.pushViewController(vc, animated: isAnimated)
         }
     }
 

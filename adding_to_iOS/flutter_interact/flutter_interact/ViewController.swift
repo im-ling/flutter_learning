@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = UIColor.systemPink
+    
         // Make a button to call the showFlutter function when pressed.
         let button = UIButton(type:UIButton.ButtonType.custom)
         button.addTarget(self, action: #selector(showFlutter), for: .touchUpInside)
@@ -44,7 +46,6 @@ class ViewController: UIViewController {
             print(dic)
         }
 
-        global_delegate.tempVc = self
         FlutterBoost.instance().open(options)
 //      let flutterEngine = (UIApplication.shared.delegate as! AppDelegate).flutterEngine
 //      let flutterViewController =

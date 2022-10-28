@@ -12,7 +12,6 @@
 		3D7F9ABD290AF8EF000ADB23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7F9ABC290AF8EF000ADB23 /* AppDelegate.swift */; };
 		3D7F9ABF290AF8EF000ADB23 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7F9ABE290AF8EF000ADB23 /* SceneDelegate.swift */; };
 		3D7F9AC1290AF8EF000ADB23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7F9AC0290AF8EF000ADB23 /* ViewController.swift */; };
-		3D7F9AC4290AF8EF000ADB23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D7F9AC2290AF8EF000ADB23 /* Main.storyboard */; };
 		3D7F9AC6290AF8F1000ADB23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D7F9AC5290AF8F1000ADB23 /* Assets.xcassets */; };
 		3D7F9AC9290AF8F1000ADB23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D7F9AC7290AF8F1000ADB23 /* LaunchScreen.storyboard */; };
 		3D7F9AD4290AF8F1000ADB23 /* flutter_interactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7F9AD3290AF8F1000ADB23 /* flutter_interactTests.swift */; };
@@ -49,7 +48,6 @@
 		3D7F9ABC290AF8EF000ADB23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D7F9ABE290AF8EF000ADB23 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3D7F9AC0290AF8EF000ADB23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3D7F9AC3290AF8EF000ADB23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3D7F9AC5290AF8F1000ADB23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D7F9AC8290AF8F1000ADB23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D7F9ACA290AF8F1000ADB23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 				3D7F9ABC290AF8EF000ADB23 /* AppDelegate.swift */,
 				3D7F9ABE290AF8EF000ADB23 /* SceneDelegate.swift */,
 				3D7F9AC0290AF8EF000ADB23 /* ViewController.swift */,
-				3D7F9AC2290AF8EF000ADB23 /* Main.storyboard */,
 				3D7F9AC5290AF8F1000ADB23 /* Assets.xcassets */,
 				3D7F9AC7290AF8F1000ADB23 /* LaunchScreen.storyboard */,
 				3D7F9ACA290AF8F1000ADB23 /* Info.plist */,
@@ -283,7 +280,6 @@
 			files = (
 				3D7F9AC9290AF8F1000ADB23 /* LaunchScreen.storyboard in Resources */,
 				3D7F9AC6290AF8F1000ADB23 /* Assets.xcassets in Resources */,
-				3D7F9AC4290AF8EF000ADB23 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,14 +467,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3D7F9AC2290AF8EF000ADB23 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3D7F9AC3290AF8EF000ADB23 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3D7F9AC7290AF8F1000ADB23 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -617,7 +605,6 @@
 				INFOPLIST_FILE = flutter_interact/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -646,7 +633,6 @@
 				INFOPLIST_FILE = flutter_interact/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
