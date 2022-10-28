@@ -9,6 +9,9 @@ import UIKit
 import Flutter
 // Used to connect plugins (only if you have plugins with iOS platform code).
 import FlutterPluginRegistrant
+import flutter_boost
+
+let global_delegate = BoostDelegate()
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Used to connect plugins (only if you have plugins with iOS platform code).
         GeneratedPluginRegistrant.register(with: self.flutterEngine);
         
+        FlutterBoost.instance().setup(application, delegate: global_delegate) { engine in
+
+        }
         // Override point for customization after application launch.
         return true
     }

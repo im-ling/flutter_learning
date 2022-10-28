@@ -1,21 +1,28 @@
 PODS:
   - Flutter (1.0.0)
+  - flutter_boost (0.0.2):
+    - Flutter
   - FlutterPluginRegistrant (0.0.1):
     - Flutter
+    - flutter_boost
 
 DEPENDENCIES:
   - Flutter (from `../module_my_flutter/.ios/Flutter`)
+  - flutter_boost (from `../module_my_flutter/.ios/.symlinks/plugins/flutter_boost/ios`)
   - FlutterPluginRegistrant (from `../module_my_flutter/.ios/Flutter/FlutterPluginRegistrant`)
 
 EXTERNAL SOURCES:
   Flutter:
     :path: "../module_my_flutter/.ios/Flutter"
+  flutter_boost:
+    :path: "../module_my_flutter/.ios/.symlinks/plugins/flutter_boost/ios"
   FlutterPluginRegistrant:
     :path: "../module_my_flutter/.ios/Flutter/FlutterPluginRegistrant"
 
 SPEC CHECKSUMS:
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
-  FlutterPluginRegistrant: 58acfb6cb31ee4ca14f920aba101815efda113ee
+  flutter_boost: 6a73c54e5654df180c2cc379045b8cba9746fc8a
+  FlutterPluginRegistrant: debce1dfb1a9620fc2fdb913fc993afab2c8ba8a
 
 PODFILE CHECKSUM: 730dca73ef47af3d5195648750b0ff8334b8cad0
 

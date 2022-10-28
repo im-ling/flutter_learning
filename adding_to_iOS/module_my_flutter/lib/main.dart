@@ -30,7 +30,7 @@ class _MyAppState extends State<MyApp> {
   /// 如果用MaterialPageRoute的话同理
 
   Map<String, FlutterBoostRouteFactory> routerMap = {
-    'mainPage': (RouteSettings settings, String uniqueId) {
+    'mainPage': (RouteSettings settings, String? uniqueId) {
       return CupertinoPageRoute(
           settings: settings,
           builder: (_) {
@@ -45,8 +45,9 @@ class _MyAppState extends State<MyApp> {
       return CupertinoPageRoute(
           settings: settings,
           builder: (_) {
-            Map<String, Object> map = settings.arguments as Map<String, Object>;
-            String data = map['data'] as String;
+            Map<String, dynamic> map =
+                settings.arguments as Map<String, dynamic>;
+            String data = map['data'] ?? "123";
             return SimplePage(
               data: data,
             );
@@ -54,9 +55,14 @@ class _MyAppState extends State<MyApp> {
     },
   };
 
-  Route<dynamic> routeFactory(RouteSettings settings, String uniqueId) {
+  Route<dynamic>? routeFactory(RouteSettings settings, String? uniqueId) {
+    // FlutterBoostRouteFactory func =
+    //     routerMap[settings.name] as FlutterBoostRouteFactory;
+    // debugPrint("llll" + (settings.name ?? ''));
+    // if (settings == null || settings.name == null) {
     FlutterBoostRouteFactory func =
-        routerMap[settings.name] as FlutterBoostRouteFactory;
+        routerMap["simplePage"] as FlutterBoostRouteFactory;
+    // }
     return func(settings, uniqueId);
   }
 
@@ -82,7 +88,7 @@ class _MyAppState extends State<MyApp> {
 }
 
 class MainPage extends StatelessWidget {
-  const MainPage({Object data});
+  const MainPage({Object? data});
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
@@ -92,11 +98,18 @@ class MainPage extends StatelessWidget {
 }
 
 class SimplePage extends StatelessWidget {
-  const SimplePage({Object data});
+  const SimplePage({Object? data});
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Text('SimplePage')),
+    return Scaffold(
+      body: Center(
+        child: ElevatedButton(
+            onPressed: () {
+              debugPrint("Elevated button pressed");
+              BoostNavigator.instance.pop();
+            },
+            child: const Text("Elevated Button")),
+      ),
     );
   }
 }

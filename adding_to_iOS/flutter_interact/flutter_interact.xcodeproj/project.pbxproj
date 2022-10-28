@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3393B17AB1C65F330CAD8618 /* Pods_flutter_interact.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE22E6212F6EDFFC11B3495B /* Pods_flutter_interact.framework */; };
+		3D50ECE1290BC8F9001634F1 /* BoostDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D50ECE0290BC8F9001634F1 /* BoostDelegate.swift */; };
 		3D7F9ABD290AF8EF000ADB23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7F9ABC290AF8EF000ADB23 /* AppDelegate.swift */; };
 		3D7F9ABF290AF8EF000ADB23 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7F9ABE290AF8EF000ADB23 /* SceneDelegate.swift */; };
 		3D7F9AC1290AF8EF000ADB23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7F9AC0290AF8EF000ADB23 /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 		204BAF4AC175CE16DA544264 /* Pods-flutter_interact-flutter_interactUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flutter_interact-flutter_interactUITests.debug.xcconfig"; path = "Target Support Files/Pods-flutter_interact-flutter_interactUITests/Pods-flutter_interact-flutter_interactUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		38FCAA5180B606A6D9C84E33 /* Pods-flutter_interact-flutter_interactUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flutter_interact-flutter_interactUITests.release.xcconfig"; path = "Target Support Files/Pods-flutter_interact-flutter_interactUITests/Pods-flutter_interact-flutter_interactUITests.release.xcconfig"; sourceTree = "<group>"; };
 		39E9F29B9BBC405D27C86A4C /* Pods-flutter_interact.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flutter_interact.debug.xcconfig"; path = "Target Support Files/Pods-flutter_interact/Pods-flutter_interact.debug.xcconfig"; sourceTree = "<group>"; };
+		3D50ECE0290BC8F9001634F1 /* BoostDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoostDelegate.swift; sourceTree = "<group>"; };
 		3D7F9AB9290AF8EF000ADB23 /* flutter_interact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flutter_interact.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D7F9ABC290AF8EF000ADB23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D7F9ABE290AF8EF000ADB23 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				3D7F9AC5290AF8F1000ADB23 /* Assets.xcassets */,
 				3D7F9AC7290AF8F1000ADB23 /* LaunchScreen.storyboard */,
 				3D7F9ACA290AF8F1000ADB23 /* Info.plist */,
+				3D50ECE0290BC8F9001634F1 /* BoostDelegate.swift */,
 			);
 			path = flutter_interact;
 			sourceTree = "<group>";
@@ -154,7 +157,6 @@
 				63465D15BCBA21C1B5BA1A3B /* Pods-flutter_interactTests.debug.xcconfig */,
 				47926CADA21090CAF045A0E4 /* Pods-flutter_interactTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -181,6 +183,7 @@
 				3D7F9AB6290AF8EF000ADB23 /* Frameworks */,
 				3D7F9AB7290AF8EF000ADB23 /* Resources */,
 				0ED4EE8DF02B613BFFDD3BFA /* [CP-User] Embed Flutter Build module_my_flutter Script */,
+				1F0B9F2EA703AC4C99A3AC77 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -218,6 +221,7 @@
 				3D7F9AD5290AF8F1000ADB23 /* Sources */,
 				3D7F9AD6290AF8F1000ADB23 /* Frameworks */,
 				3D7F9AD7290AF8F1000ADB23 /* Resources */,
+				C1B411D2CF6DF68F0278DCF5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -310,6 +314,23 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\nset -u\nsource \"${SRCROOT}/../module_my_flutter/.ios/Flutter/flutter_export_environment.sh\"\nexport VERBOSE_SCRIPT_LOGGING=1 && \"$FLUTTER_ROOT\"/packages/flutter_tools/bin/xcode_backend.sh embed_and_thin";
 		};
+		1F0B9F2EA703AC4C99A3AC77 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-flutter_interact/Pods-flutter_interact-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-flutter_interact/Pods-flutter_interact-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-flutter_interact/Pods-flutter_interact-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5BB2BF1AC76D79766050186E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -376,6 +397,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C1B411D2CF6DF68F0278DCF5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-flutter_interact-flutter_interactUITests/Pods-flutter_interact-flutter_interactUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-flutter_interact-flutter_interactUITests/Pods-flutter_interact-flutter_interactUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-flutter_interact-flutter_interactUITests/Pods-flutter_interact-flutter_interactUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DF4A5345C65B527D0FA0502C /* [CP-User] Run Flutter Build module_my_flutter Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -393,6 +431,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D50ECE1290BC8F9001634F1 /* BoostDelegate.swift in Sources */,
 				3D7F9AC1290AF8EF000ADB23 /* ViewController.swift in Sources */,
 				3D7F9ABD290AF8EF000ADB23 /* AppDelegate.swift in Sources */,
 				3D7F9ABF290AF8EF000ADB23 /* SceneDelegate.swift in Sources */,
