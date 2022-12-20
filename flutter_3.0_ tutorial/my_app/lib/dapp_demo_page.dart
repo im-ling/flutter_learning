@@ -1,4 +1,7 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
+import 'dart:math' as math;
 
 int itemCount = 20;
 
@@ -64,6 +67,21 @@ class _DappDemoPageState extends State<DappDemoPage> {
                         debugPrint("Text button ${(index + 1)} pressed");
                       },
                       child: Text('Title ${(index + 1)}'));
+                })),
+        SizedBox(
+            width: 393.0,
+            height: 560.0,
+            child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: itemCount,
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    color:
+                        Color((math.Random().nextDouble() * 0xFFFFFF).toInt())
+                            .withOpacity(1.0),
+                    width: 393.0,
+                    // color: Colors.green,
+                  );
                 }))
       ],
     );
