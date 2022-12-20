@@ -80,6 +80,26 @@ class _DappDemoPageState extends State<DappDemoPage> {
                         Color((math.Random().nextDouble() * 0xFFFFFF).toInt())
                             .withOpacity(1.0),
                     width: 393.0,
+                    child: Row(
+                      children: [
+                        Container(
+                            color: Colors.white70,
+                            width: 50,
+                            height: 560,
+                            child: ListView.builder(
+                                scrollDirection: Axis.vertical,
+                                itemCount: itemCount,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return const SizedBox(
+                                      width: 28.0,
+                                      height: 42.0,
+                                      child: Icon(
+                                        Icons.lte_mobiledata,
+                                        size: 28.0,
+                                      ));
+                                })),
+                      ],
+                    ),
                     // color: Colors.green,
                   );
                 }))
