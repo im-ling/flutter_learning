@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/home_page.dart';
 import 'package:my_app/profile_page.dart';
+import 'package:my_app/dapp_demo_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,6 +32,7 @@ class _RootPageState extends State<RootPage> {
   List<Widget> pages = const [
     HomePage(),
     ProfilePage(),
+    DappDemoPage(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -50,6 +52,7 @@ class _RootPageState extends State<RootPage> {
         destinations: const [
           NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
           NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
+          NavigationDestination(icon: Icon(Icons.abc), label: 'DApp'),
         ],
         onDestinationSelected: (int index) {
           setState(() {
